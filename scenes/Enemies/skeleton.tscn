@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccnai63pp266m"]
+
+[ext_resource type="Script" uid="uid://bu55isbb58d5p" path="res://scripts/skeleton.gd" id="1_apicw"]
+[ext_resource type="Texture2D" uid="uid://cou14s24ill6q" path="res://img/skeleton.png" id="1_od513"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_apicw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_od513")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_apicw"]
+radius = 7.0
+height = 42.0
+
+[node name="Skeleton" type="Node2D"]
+script = ExtResource("1_apicw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_apicw")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 255
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_apicw")

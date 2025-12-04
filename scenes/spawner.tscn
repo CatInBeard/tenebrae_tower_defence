@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnck4gvqptxie"]
+
+[ext_resource type="Script" uid="uid://ugka4eefo85b" path="res://scripts/spawner.gd" id="1_2vbf6"]
+[ext_resource type="PackedScene" uid="uid://ccnai63pp266m" path="res://scenes/Enemies/skeleton.tscn" id="2_ik2nu"]
+
+[node name="Spawner" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("1_2vbf6")
+spawnable = ExtResource("2_ik2nu")

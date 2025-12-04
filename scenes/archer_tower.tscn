@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0q1m7xk1jtbj"]
+
+[ext_resource type="Texture2D" uid="uid://654kbmsb0tcd" path="res://img/archer_tower.png" id="1_ggefl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sb3hj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ggefl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Archer-tower" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sb3hj")
