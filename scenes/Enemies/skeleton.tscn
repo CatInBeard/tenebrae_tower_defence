@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccnai63pp266m"]
+[gd_scene load_steps=6 format=3 uid="uid://ccnai63pp266m"]
 
 [ext_resource type="Script" uid="uid://bu55isbb58d5p" path="res://scripts/skeleton.gd" id="1_apicw"]
 [ext_resource type="Texture2D" uid="uid://cou14s24ill6q" path="res://img/skeleton.png" id="1_od513"]
+[ext_resource type="PackedScene" uid="uid://c8bbn4intebkh" path="res://scenes/UI/healthbar.tscn" id="2_8f06n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_apicw"]
 animations = [{
@@ -20,14 +21,21 @@ height = 42.0
 
 [node name="Skeleton" type="Node2D"]
 script = ExtResource("1_apicw")
+castle_damage = 50
+
+[node name="Healthbar" parent="." node_paths=PackedStringArray("healthSource") instance=ExtResource("2_8f06n")]
+position = Vector2(0, 24)
+scale = Vector2(2, 0.3)
+healthSource = NodePath("..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_apicw")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 255
-collision_mask = 255
+[node name="Area2D" type="Area2D" parent="." groups=["Castle"]]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_apicw")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

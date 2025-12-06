@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0q1m7xk1jtbj"]
+
+[ext_resource type="Texture2D" uid="uid://654kbmsb0tcd" path="res://img/archer_tower.png" id="1_ggefl"]
+[ext_resource type="Script" uid="uid://dwaexh2ily1lv" path="res://scripts/archer_tower.gd" id="1_sb3hj"]
+[ext_resource type="PackedScene" uid="uid://els35gkiphy5" path="res://scenes/bullets/arrow.tscn" id="2_10wjk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sb3hj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ggefl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o73lx"]
+radius = 70.256676
+
+[node name="Archer-tower" type="Node2D"]
+script = ExtResource("1_sb3hj")
+bullet_scene = ExtResource("2_10wjk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sb3hj")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_o73lx")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

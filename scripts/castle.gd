@@ -1,6 +1,7 @@
 extends Node2D
 
-@export var health: int = 100
+@export var health: int = 1000
+@export var maxHealth: int = 1000
 
 func take_damage(damage: int):
 	health -= damage
