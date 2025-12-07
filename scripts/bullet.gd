@@ -2,11 +2,14 @@ extends Node2D
 
 class_name Bullet
 
+enum DamageType {Kinetic}
+
 @export var speed: float = 400.0
 @export var max_distance: float = 300
 @export var deceleration: float = 50.0
 @export var enemy_damage: float = 34.0
 @export var delete_after_fit: bool = true
+@export var damage_type: DamageType = DamageType.Kinetic
 
 var velocity: Vector2
 var traveled_distance: float = 0.0
@@ -35,6 +38,9 @@ func set_velocity(new_velocity: Vector2) -> void:
 
 func get_damage() -> float:
 	return enemy_damage
+
+func get_damage_type() -> DamageType:
+	return damage_type
 	
 func destroy_on_hit():
 	if delete_after_fit:

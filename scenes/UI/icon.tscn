@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c13lf8c2ahnlx"]
+
+[ext_resource type="Texture2D" uid="uid://dtks2kbdiuro4" path="res://img/icons/hammer_icon.png" id="1_agaem"]
+
+[node name="Icon" type="TextureButton"]
+offset_top = -1.0
+offset_bottom = -1.0
+texture_normal = ExtResource("1_agaem")

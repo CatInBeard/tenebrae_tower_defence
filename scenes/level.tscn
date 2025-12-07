@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0hsb47eihakg"]
+[gd_scene load_steps=6 format=3 uid="uid://c0hsb47eihakg"]
 
+[ext_resource type="Script" uid="uid://c4ttuq8rmm4m1" path="res://scripts/UI/level.gd" id="1_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://o0v602cs4de6" path="res://scenes/castle.tscn" id="2_w7c3h"]
-[ext_resource type="PackedScene" uid="uid://d0q1m7xk1jtbj" path="res://scenes/towers/archer_tower.tscn" id="3_w8frs"]
 [ext_resource type="PackedScene" uid="uid://dnck4gvqptxie" path="res://scenes/spawner.tscn" id="4_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://ccnai63pp266m" path="res://scenes/Enemies/skeleton.tscn" id="4_ppgk2"]
 
 [sub_resource type="Curve2D" id="Curve2D_w8frs"]
 _data = {
@@ -11,24 +12,17 @@ _data = {
 point_count = 10
 
 [node name="Level" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_ppgk2")
 
 [node name="Castle" parent="." instance=ExtResource("2_w7c3h")]
 position = Vector2(517, 263)
 
-[node name="Archer-tower" parent="." instance=ExtResource("3_w8frs")]
-position = Vector2(197, 184)
-
-[node name="Archer-tower2" parent="." instance=ExtResource("3_w8frs")]
-position = Vector2(400, 209)
-
-[node name="Archer-tower3" parent="." instance=ExtResource("3_w8frs")]
-position = Vector2(307, 175)
-
-[node name="Archer-tower4" parent="." instance=ExtResource("3_w8frs")]
-position = Vector2(82, 164)
-
-[node name="Spawner" parent="." instance=ExtResource("4_mx8sn")]
+[node name="Spawner" parent="." node_paths=PackedStringArray("spawn_to", "path") instance=ExtResource("4_mx8sn")]
 position = Vector2(-36, 287)
+spawnable = ExtResource("4_ppgk2")
+spawn_to = NodePath("..")
+path = NodePath("../Path2D")
 
 [node name="Path2D" type="Path2D" parent="." groups=["Path"]]
 curve = SubResource("Curve2D_w8frs")

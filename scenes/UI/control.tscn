@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnm6iqtpnkmwh"]
+
+[ext_resource type="Texture2D" uid="uid://bwjb1koyj2aup" path="res://img/ui/healthbar/ui_script.png" id="1_i7dbw"]
+[ext_resource type="Script" uid="uid://b1q33s063rnuu" path="res://scripts/UI/control.gd" id="1_lmo2c"]
+
+[node name="Control" type="Node2D"]
+script = ExtResource("1_lmo2c")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -100.0
+offset_top = -25.0
+offset_right = 312.0
+offset_bottom = 26.0
+texture = ExtResource("1_i7dbw")
+expand_mode = 1
+stretch_mode = 2

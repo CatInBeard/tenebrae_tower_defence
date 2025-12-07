@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0q1m7xk1jtbj"]
+[gd_scene load_steps=7 format=3 uid="uid://d0q1m7xk1jtbj"]
 
 [ext_resource type="Texture2D" uid="uid://654kbmsb0tcd" path="res://img/archer_tower.png" id="1_ggefl"]
 [ext_resource type="Script" uid="uid://dwaexh2ily1lv" path="res://scripts/archer_tower.gd" id="1_sb3hj"]
 [ext_resource type="PackedScene" uid="uid://els35gkiphy5" path="res://scenes/bullets/arrow.tscn" id="2_10wjk"]
+[ext_resource type="Texture2D" uid="uid://cc37775c3o5yw" path="res://img/icons/bow_icon.png" id="3_pxslk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sb3hj"]
 animations = [{
@@ -16,11 +17,12 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o73lx"]
-radius = 70.256676
+radius = 103.0
 
 [node name="Archer-tower" type="Node2D"]
 script = ExtResource("1_sb3hj")
 bullet_scene = ExtResource("2_10wjk")
+icon = ExtResource("3_pxslk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sb3hj")

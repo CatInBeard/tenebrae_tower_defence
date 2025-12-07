@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpq1ws4wjhuwl"]
+
+[ext_resource type="Script" uid="uid://tbn15sil048o" path="res://scripts/UI/select_area.gd" id="1_30tj7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30tj7"]
+size = Vector2(50, 51)
+
+[node name="SelectArea" type="Node2D"]
+script = ExtResource("1_30tj7")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-25, 25, 25, 25, 25, -25, -25, -25, -25, 25)
+width = 1.0
+default_color = Color(1, 1, 0.12941177, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_30tj7")

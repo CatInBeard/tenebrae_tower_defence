@@ -2,6 +2,8 @@ extends Node2D
 
 @export var bullet_scene: PackedScene
 @export var fire_rate: float = 1.0
+@export var icon: Texture2D = null
+@export var coast: int = 100;
 
 var can_shoot: bool = true
 var enemy_queue: Array = []
@@ -33,3 +35,9 @@ func shoot(target_position: Vector2) -> void:
 	bullet.set_velocity(direction * bullet.speed)
 
 	get_parent().add_child(bullet)
+
+func get_icon() -> Texture2D:
+	return icon
+
+func get_coast() -> int:
+	return coast

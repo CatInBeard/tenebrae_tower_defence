@@ -29,6 +29,7 @@ Castle="Players base"
 Path="Define all bot roads"
 Enemies="All mobs"
 Bullets=""
+UI_select=""
 
 [layer_names]
 
